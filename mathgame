@@ -1,0 +1,100 @@
+using System;
+using System.ComponentModel.Design;
+using System.Drawing;
+using System.Globalization;
+using System.Net.Http.Headers;
+using System.Collections.Generic;
+
+namespace mathgame
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Bem vindo ao quiz de Matemática!");
+            Console.WriteLine("Carrega Start para começar!");
+            Console.WriteLine();
+            Console.WriteLine("PS: responde ás respectivas perguntas com os números na sua forma numérica.");
+            //criar botão start (front-end)
+
+            Console.WriteLine();
+            string[] perguntas = new string[]
+            {
+                "Qual é o único número primo par?",
+                "Como também é chamado o perímetro de um círculo?",
+                "O 'pi' é um número racional ou irracional?",
+                "Como se chama uma imagem que também se pode ver em 3 dimensões?",
+                "Como se denominam os ângulos maiores que 180 graus mas menores que 360?",
+                "Que palavra matemática significa o tamanho relativo de algo?",
+                "334×7+335?",
+                "1203+806+409?",
+                "Qual é a 'receita' matemática para resolver algo?",
+                "Quantos acres formam uma milha quadrada?",
+            };
+
+            string[] respostas = new string[10];
+
+            respostas[0] = "2";
+            respostas[1] = "circunferência";
+            respostas[2] = "irracional";
+            respostas[3] = "holograma";
+            respostas[4] = "ângulos reflexos";
+            respostas[5] = "escala";
+            respostas[6] = "2673";
+            respostas[7] = "2418";
+            respostas[8] = "fórmula";
+            respostas[9] = "640";
+
+
+            respostas[0] = "2" || "dois";
+
+
+            int pontuaçao = 0;
+
+            for (int i = 0; i < perguntas.Length; i++)
+            {
+                Console.WriteLine($"Pergunta {i + 1}: {perguntas[i]}");
+                Console.WriteLine();
+
+                string respostaJogador = Console.ReadLine();
+                Console.Clear();
+
+
+                if (respostaJogador.ToUpper() != respostas[i].ToUpper())
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Incorreto. A resposta correta é: {respostas[i]}");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    pontuaçao++;
+                    Console.WriteLine("Correto!");
+                    Console.ResetColor();
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
+
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("Pontuaçao final: " + pontuaçao);
+            Console.WriteLine();
+            if (pontuaçao == 10)
+            {
+                Console.WriteLine("Parabéns!");
+                Console.WriteLine("Acertaste todas as respostas!");
+            }
+            else
+            {
+                Console.WriteLine("Terminaste o quiz.");
+                Console.WriteLine("Tenta novamente!");
+            }
+        }
+
+        
+    }
+} 
