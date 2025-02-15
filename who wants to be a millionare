@@ -1,0 +1,109 @@
+using System;
+using System.ComponentModel.Design;
+using System.Drawing;
+using System.Globalization;
+using System.Net.Http.Headers;
+
+namespace quemquersermilionario
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Bem vindo ao Quem Quer Ser Milionário!");
+            Console.WriteLine();
+            Console.WriteLine("Por favor, escreva 'start' para começar.");
+            Console.WriteLine();
+            string input = Console.ReadLine();
+
+            if (input.ToLower() != "start")
+            {
+                Console.WriteLine("Comando errado");
+                return;
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            string[] perguntas = new string[]
+   {
+                "1. Quem foi o décimo rei de Portugal?",
+                "2. Qual era o primeiro nome de Picasso?",
+                "3. Que companhia produziu o filme 'Up! Altamente'",
+                "4. Quem marcou o último golo do BenficaXSporting no dia 13/04/2010?" ,
+                "5. Qual foi a batalha mais mortal da Segunda Guerra Mundial?" ,
+                "6. O ferro é essencial no corpo humano porque..." ,
+                "7. Qual é o valor de π?" ,
+                "8. Qual é o símbolo químico da prata?" ,
+                "9. Quantas colunas verticais existem atualmente na tabela periódica?" ,
+                "10. A caxumba é uma doença causada por..." ,
+
+   };
+
+
+            string[][] opcoesResposta = new string[][]
+            {
+        new string[] { "A) D.Fernando", "B) D.Sancho I", "C) D.João I", "D) D.Sancho II" },
+        new string[] {"A) Pablo" , "B) Diego" , "C) Jorge" , "D) Nuno"},
+        new string[] {"A) Walt Disney Studios" , "B) Lusomundo" , "C) Pixar" , "D) MGM"},
+        new string[] {"A) Cardozo" , "B) Aimar" , "C) DiMaria", "D) Lieson"},
+        new string[] {"A) Moscovo" , "B) El Alamein" , "C) La Lys" , "D) Estalinegrado"},
+        new string[] {"A) Fixa o oxigénio" , "B) Dá resistência aos ossos" , "C) Ajuda na digestão" , "D) Faz parte do sistema imunológico"},
+        new string[] {"A) 2,14234" , "B) 3,14" , "C) 3,1415927" , "D) 14,3654"},
+        new string[] {"A) Au" , "B) Pt" , "C) Zn" , "D) Ag"},
+        new string[] {"A) 15" , "B) 18" , "C) 17" , "D) 19"},
+        new string[] {"A) Bactéria" , "B) Vírus" , "C) Fungo" , "D) Protozoário"},
+
+            };
+
+
+            string[] respostasCorretas = new string[]
+            {
+        "C",
+        "A",
+        "C",
+        "B",
+        "D",
+        "A",
+        "C",
+        "D",
+        "B",
+        "B",
+
+            };
+
+
+            for (int i = 0; i < perguntas.Length; i++)
+            {
+                Console.WriteLine(perguntas[i]);
+                foreach (string opcao in opcoesResposta[i])
+                {
+                    Console.WriteLine(opcao);
+                }
+                Console.WriteLine();
+                string respostaJogador = Console.ReadLine().ToUpper();
+                Console.WriteLine();
+                if (respostaJogador == respostasCorretas[i])
+                {
+
+                    Console.WriteLine("Correto!");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Resposta incorreta.");
+                    Console.WriteLine("GAME OVER");
+                    return;
+
+
+                }
+                if (i == perguntas.Length - 1)
+                {
+                    Console.WriteLine("Parabéns! You are a winner!");
+                    break;
+                }
+
+            }
+
+        }
+    }
+}
